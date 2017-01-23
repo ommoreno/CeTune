@@ -62,9 +62,9 @@ class IPHandler:
             printout("ERROR", 'Error to get ips: %s' % stderr)
             sys.exit()
         ipaddrlist = []
-        res = re.findall("inet addr:\d+\.\d+\.\d+\.\d+",stdout)
+        res = re.findall("inet \d+\.\d+\.\d+\.\d+",stdout)
         for item in res:
-            b = item.split(':')
+            b = item.split(' ')
             if b[1] != "127.0.0.1":
                 ipaddrlist.append(b[1])
         if len(ipaddrlist) == 0:
